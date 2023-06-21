@@ -30,7 +30,7 @@ namespace MangaCollectionLibrary
             Console.WriteLine("What magazine was this Manga published in?: ");
             string userInput = Console.ReadLine();
             this.MangaMagazine = userInput;
-            GetGenreByUserInput
+            GetGenreByUserInput();
         }
         public void GetGenreByUserInput()
         {
