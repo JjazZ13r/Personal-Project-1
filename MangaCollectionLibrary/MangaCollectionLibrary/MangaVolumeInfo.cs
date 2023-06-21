@@ -6,6 +6,14 @@ namespace MangaCollectionLibrary
 {
     public class MangaVolumeInfo 
     {
+        public static Dictionary<int, string> MangaDemographicChoice = new Dictionary<int, string>()
+        {
+            { 1, "Shonen" },
+            { 2, "Seinen" },
+            { 3, "Shojo" },
+            { 4, "Josei" }
+
+        };
         Demographic mangaDemographic;
         //use a switch 
         public string MangaName { get; set; }
@@ -30,7 +38,7 @@ namespace MangaCollectionLibrary
             Console.WriteLine("What magazine was this Manga published in?: ");
             string userInput = Console.ReadLine();
             this.MangaMagazine = userInput;
-            GetGenreByUserInput();
+            GetGenreByUserInput
         }
         public void GetGenreByUserInput()
         {
@@ -40,10 +48,14 @@ namespace MangaCollectionLibrary
             Console.WriteLine("Does this have another Genre? Y/N: ");
             string yesOrNoInput = Console.ReadLine().ToUpper();
 
-            if (yesOrNoInput == "Y")
+            if(yesOrNoInput == "Y")
             {
                 GetGenreByUserInput();
             }
+            
+
+            
+
         }
     }
 }

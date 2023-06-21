@@ -6,6 +6,7 @@ namespace MangaCollectionLibrary
 {
     public class Menu
     {
+        public MangaVolumeInfo NewVolume = new MangaVolumeInfo();
         public void MainMenu()
         {
             Console.Title = "Manga Collection Record";
@@ -13,7 +14,6 @@ namespace MangaCollectionLibrary
             Console.WriteLine("2. Search for Existing Volume");
             Console.WriteLine("3. List current library");
             int userInput;
-            MangaVolumeInfo newManga = new MangaVolumeInfo();
             try
             {
                 userInput = int.Parse(Console.ReadLine());
@@ -33,28 +33,38 @@ namespace MangaCollectionLibrary
         public void GetMangaNameByUserInput()
         {
             Console.WriteLine("What is the title of the Manga Volume?: ");
-            string userInput = Console.ReadLine();
-            this.MangaName= userInput;
+            string userInput = Console.ReadLine(); 
+            NewVolume.MangaName= userInput;
             GetMangaMagazineByUserInput();
         }
         public void GetMangaMagazineByUserInput()
         {
             Console.WriteLine("What magazine was this Manga published in?: ");
             string userInput = Console.ReadLine();
-            this.MangaMagazine = userInput;
+            NewVolume.MangaMagazine = userInput;
             GetGenreByUserInput();
         }
         public void GetGenreByUserInput()
         {
             Console.WriteLine("What Genre is this Manga?: ");
             string userInput = Console.ReadLine();
-            this.Genre = userInput;
+            NewVolume.Genre = userInput;
             Console.WriteLine("Does this have another Genre? Y/N: ");
             string yesOrNoInput = Console.ReadLine().ToUpper();
 
             if (yesOrNoInput == "Y")
             {
                 GetGenreByUserInput();
+            }
+        }
+        public void GetMangaDemographic()
+        {
+            Console.WriteLine("What demographic is this volume? Input number: ");
+            foreach (KeyValuePair<int, string> kvp in MangaVolumeInfo.MangaDemographicChoice)
+            {
+                Console.WriteLine($"{kvp.Key}. {kvp.Value}");
+                string userInput = Console.ReadLine();
+
             }
         }
     }

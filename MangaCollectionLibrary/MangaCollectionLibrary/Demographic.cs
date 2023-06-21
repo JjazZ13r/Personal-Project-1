@@ -11,4 +11,5 @@ namespace MangaCollectionLibrary
         Seinen,
         Josei
     }
+
 }

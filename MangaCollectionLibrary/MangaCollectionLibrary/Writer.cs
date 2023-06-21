@@ -12,7 +12,7 @@ namespace MangaCollectionLibrary
             string director = Environment.CurrentDirectory;
             string fileName = "MangaLibrary";
             string destinationPath = Path.Combine(director, fileName);
-
+            
         }
     }
 }
