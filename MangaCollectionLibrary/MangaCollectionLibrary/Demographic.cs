@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MangaCollectionLibrary
 {
-    enum Genre
+    enum Demographic
     {
         Shonen,
         Shojo,

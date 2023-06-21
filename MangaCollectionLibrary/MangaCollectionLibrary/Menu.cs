@@ -4,11 +4,12 @@ using System.Text;
 
 namespace MangaCollectionLibrary
 {
-    public abstract class Menu
+    public class Menu
     {
         public void MainMenu()
         {
-            Console.Title = "Manga Collection Record";
+            Console.Title = "Manga Collection Record"; 
+
 
 
         }

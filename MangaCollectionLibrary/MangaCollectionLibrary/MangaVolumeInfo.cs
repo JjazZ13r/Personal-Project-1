@@ -6,12 +6,16 @@ namespace MangaCollectionLibrary
 {
     public class MangaVolumeInfo 
     {
-        Genre mangaGenre;
+        Demographic mangaDemographic;
         //use a switch 
-        public void Blergh()
+        public string MangaName { get; set; }
+        public string MangaMagazine { get; set; }
+        public string Genre { get; set; }
+
+        public void GetDemographic()
         {
             int userInput = int.Parse(Console.ReadLine());
-            mangaGenre = (Genre)userInput;
+            mangaDemographic = (Demographic)userInput;
 
 
         }

@@ -6,7 +6,8 @@ namespace MangaCollectionLibrary
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Menu Start = new Menu();
+            Start.MainMenu();
             //Something that could be done is to use a .json file reader and convert the information of the manga volumes and save it into a .json string and save it as a .json file.
             //Lots of .json file readers and converters available to use. 
             //Nuget file packages 
