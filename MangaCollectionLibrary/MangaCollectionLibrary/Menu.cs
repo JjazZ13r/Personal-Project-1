@@ -56,16 +56,19 @@ namespace MangaCollectionLibrary
             {
                 GetGenreByUserInput();
             }
+            GetMangaDemographic();
         }
         public void GetMangaDemographic()
         {
-            Console.WriteLine("What demographic is this volume? Input number: ");
+            Console.WriteLine("What demographic is this volume? Input corresponding number: ");
             foreach (KeyValuePair<int, string> kvp in MangaVolumeInfo.MangaDemographicChoice)
             {
-                Console.WriteLine($"{kvp.Key}. {kvp.Value}");
-                string userInput = Console.ReadLine();
-
+                Console.WriteLine($"{kvp.Key}. {kvp.Value} ");
             }
+            int userInput = int.Parse(Console.ReadLine());
+            NewVolume.Demographic = MangaVolumeInfo.MangaDemographicChoice[userInput];
+            
+            
         }
     }
 }
