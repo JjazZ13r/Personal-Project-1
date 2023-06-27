@@ -19,6 +19,8 @@ namespace MangaCollectionLibrary
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
+                        string[] words = line.Split("|");
+
                         Console.WriteLine(line);
                     }
                 }
