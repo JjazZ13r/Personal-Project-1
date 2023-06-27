@@ -13,10 +13,15 @@ namespace MangaCollectionLibrary
         public void MainMenu()
         {
             Console.Title = "Manga Collection Record";
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Manga Collection Library");
+            Console.ResetColor();
+            Console.WriteLine("------------------------");
             Console.WriteLine("1. Insert new Volume");
             Console.WriteLine("2. Search for Existing Volume");
             Console.WriteLine("3. List current library");
             Console.WriteLine("4. Exit");
+            Console.WriteLine("------------------------");
             int userInput;
             try
             {
@@ -42,6 +47,7 @@ namespace MangaCollectionLibrary
                 else if (userInput == 3)
                 {
                     Console.Clear();
+                    
                 }
                 else if (userInput == 4)
                 {
