@@ -5,28 +5,32 @@ using System.Text;
 
 namespace MangaCollectionLibrary
 {
-    public class Writer
+    public static class Writer
     {
         public static void WriteToMangaCollectionLog(MangaVolumeInfo manga)
         {
             string directory = Environment.CurrentDirectory;
-            string fileName = "Manga_Library.txt";
+            string fileName = "Manga_Library.csv";
             string destinationPath = Path.Combine(directory, fileName);
             try
             {
                 using (StreamWriter sw = new StreamWriter(destinationPath))
                 {
-                    foreach(var item in manga)
+                    List<string> mangaProperties = new List<string>
                     {
-                        sw.WriteLine(item);
-                    }
+                        manga.MangaName,
+                        manga.MangaSeries,
+                        manga.MangaMagazine,
+                        string.Join("~", manga.Genre),
+                        manga.Demographic
+                    };
+                    sw.WriteLine(string.Join("|", mangaProperties));
                 }
             }
-            catch(IOException ex)
+            catch (IOException ex)
             {
                 Console.WriteLine("Sorry, there was an error logging the volume to the library");
             }
-
         }
     }
 }

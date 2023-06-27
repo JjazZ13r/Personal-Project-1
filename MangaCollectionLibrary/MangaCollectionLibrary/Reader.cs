@@ -5,12 +5,12 @@ using System.Text;
 
 namespace MangaCollectionLibrary
 {
-    public class Reader
+    public static class Reader
     {
-        public void OpenReader()
+        public static void OpenReader()
         {
             string directory = Environment.CurrentDirectory;
-            string fileName = "Manga_Library.txt";
+            string fileName = "Manga_Library.csv";
             string destinationPath = Path.Combine(directory, fileName);
             try
             {
@@ -19,7 +19,7 @@ namespace MangaCollectionLibrary
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        
+                        Console.WriteLine(line);
                     }
                 }
             }

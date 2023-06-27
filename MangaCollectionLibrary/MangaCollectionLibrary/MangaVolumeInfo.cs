@@ -17,9 +17,12 @@ namespace MangaCollectionLibrary
        // Demographic mangaDemographic;
         //use a switch 
         public string MangaName { get; set; }
+        public string MangaSeries { get; set; }
         public string MangaMagazine { get; set; }
-        public string Genre { get; set; }
+        public List<string> Genre { get; set; }
         public string Demographic { get; set; }
+
+
         //public void GetDemographic()
         //{
         //    int userInput = int.Parse(Console.ReadLine());
