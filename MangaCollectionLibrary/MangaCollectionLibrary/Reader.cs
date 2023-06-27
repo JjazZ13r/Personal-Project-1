@@ -62,7 +62,7 @@ namespace MangaCollectionLibrary
                             string newLine = item.Replace("~", " ");
                             fixedLine += newLine;
                         }
-                        if(fixedLine.Contains(userInput))
+                        if(fixedLine.ToLower().Contains(userInput.ToLower()))
                         {
                             Console.WriteLine(fixedLine);
                         }

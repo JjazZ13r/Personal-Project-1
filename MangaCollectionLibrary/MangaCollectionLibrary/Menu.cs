@@ -174,6 +174,7 @@ namespace MangaCollectionLibrary
         public void ThankUserForUsage()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Your volume has been added to the library!");
             Thread.Sleep(1500);
         }
