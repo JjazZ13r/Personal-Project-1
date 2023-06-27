@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 
 namespace MangaCollectionLibrary
 {
@@ -15,6 +16,7 @@ namespace MangaCollectionLibrary
             Console.WriteLine("1. Insert new Volume");
             Console.WriteLine("2. Search for Existing Volume");
             Console.WriteLine("3. List current library");
+            Console.WriteLine("4. Exit");
             int userInput;
             try
             {
@@ -30,6 +32,8 @@ namespace MangaCollectionLibrary
                     GetMangaDemographic();
                     DisplayCollectedMangaAndCheckForModifications();
                     UploadFinalizedManga();
+                    ThankUserForUsage();
+                    ReturnToMainMenu();
                 }
                 else if (userInput == 2)
                 {
@@ -38,6 +42,10 @@ namespace MangaCollectionLibrary
                 else if (userInput == 3)
                 {
                     Console.Clear();
+                }
+                else if (userInput == 4)
+                {
+                    Environment.Exit(0);
                 }
             }
             catch (Exception e)
@@ -136,6 +144,17 @@ namespace MangaCollectionLibrary
         public void DisplayEntireStoredLibrary()
         {
             Reader.OpenReader();
+        }
+        public void ThankUserForUsage()
+        {
+            Console.Clear();
+            Console.WriteLine($"Thank you for using this software!");
+            Thread.Sleep(2500);
+        }
+        public void ReturnToMainMenu()
+        {
+            Console.Clear();
+            MainMenu();
         }
     }
 }

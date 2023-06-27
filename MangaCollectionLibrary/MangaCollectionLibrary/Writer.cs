@@ -21,7 +21,7 @@ namespace MangaCollectionLibrary
                         manga.MangaName,
                         manga.MangaSeries,
                         manga.MangaMagazine,
-                        string.Join("~", manga.Genre),
+                        string.Join(" ~ ", manga.Genre),
                         manga.Demographic
                     };
                     sw.WriteLine(string.Join("|", mangaProperties));
