@@ -14,14 +14,14 @@ namespace MangaCollectionLibrary
             string destinationPath = Path.Combine(directory, fileName);
             try
             {
-                using (StreamWriter sw = new StreamWriter(destinationPath))
+                using (StreamWriter sw = new StreamWriter(destinationPath, true))
                 {
                     List<string> mangaProperties = new List<string>
                     {
                         manga.MangaName,
                         manga.MangaSeries,
                         manga.MangaMagazine,
-                        string.Join(" ~ ", manga.Genre),
+                        string.Join("~ ", manga.Genre),
                         manga.Demographic
                     };
                     sw.WriteLine(string.Join("|", mangaProperties));

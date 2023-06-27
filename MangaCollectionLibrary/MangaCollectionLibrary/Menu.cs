@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
@@ -43,14 +44,21 @@ namespace MangaCollectionLibrary
                 else if (userInput == 2)
                 {
                     Console.Clear();
+                    Console.WriteLine("What is the name of the volume you are looking for?");
+                    string mangaVolume = Console.ReadLine();
+                    Reader.OpenReaderForSpecificVolume(mangaVolume);
+                    PromptUserForMenu();
                 }
                 else if (userInput == 3)
                 {
                     Console.Clear();
+                    Reader.OpenReader();
+                    PromptUserForMenu();
                     
                 }
                 else if (userInput == 4)
                 {
+                    Goodbye();
                     Environment.Exit(0);
                 }
             }
@@ -111,12 +119,12 @@ namespace MangaCollectionLibrary
 
             }
             Console.WriteLine($"Here is the proposed information: " +
-                $"{NewVolume.MangaName}, {NewVolume.MangaSeries}, {NewVolume.MangaMagazine}, {genreNames}{NewVolume.Demographic} Do you have to change anything? Y/N");
+                $"{NewVolume.MangaName}, {NewVolume.MangaSeries}, {NewVolume.MangaMagazine},\n{genreNames}{NewVolume.Demographic}.\nDo you have to change anything? Y/N");
             string yesOrNoInput = Console.ReadLine().ToUpper();
             
             if(yesOrNoInput == "Y")
             {
-                Console.WriteLine($"What needs to be changed? \n 1. Name \n 2.Series \n 3. Magazine \n 4. Genre \n 5. Demographic");
+                Console.WriteLine($"What needs to be changed? \n 1. Name \n 2. Series \n 3. Magazine \n 4. Genre \n 5. Demographic");
                 int userInput = int.Parse(Console.ReadLine());
 
                 if(userInput == 1)
@@ -133,6 +141,7 @@ namespace MangaCollectionLibrary
                 }
                 else if(userInput == 4)
                 {
+                    NewVolume.Genre.Clear();
                     GetGenreByUserInput();
                 }
                 else if(userInput == 5)
@@ -147,6 +156,17 @@ namespace MangaCollectionLibrary
             Writer.WriteToMangaCollectionLog(NewVolume);
         }
 
+        public void PromptUserForMenu()
+        {
+            Console.WriteLine("Press enter when ready to return to Main Menu: ");
+            string input = Console.ReadLine();
+            if(input == "")
+            {
+                Console.Clear();
+                MainMenu();
+            }
+        }
+
         public void DisplayEntireStoredLibrary()
         {
             Reader.OpenReader();
@@ -154,13 +174,21 @@ namespace MangaCollectionLibrary
         public void ThankUserForUsage()
         {
             Console.Clear();
-            Console.WriteLine($"Thank you for using this software!");
-            Thread.Sleep(2500);
+            Console.WriteLine($"Your volume has been added to the library!");
+            Thread.Sleep(1500);
         }
         public void ReturnToMainMenu()
         {
             Console.Clear();
             MainMenu();
+        }
+        public void Goodbye()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Goodbye! See you later!");
+            Console.ResetColor();
+            Thread.Sleep(2000);
         }
     }
 }
