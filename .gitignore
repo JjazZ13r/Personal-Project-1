@@ -25,7 +25,6 @@ Thumbs.db
 !TechElevator*.dll
 *.lib
 *.sbr
-bin/
 obj/
 packages/
 .vs/
@@ -50,7 +49,6 @@ target/
 
 # .NET
 obj/
-bin/
 .vs/
 *.user
 
